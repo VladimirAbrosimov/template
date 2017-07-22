@@ -84,13 +84,11 @@ gulp.task('spritemade', function() {
 gulp.task('sprite', ['cleansprite', 'spritemade']);
 
 
-// Очистка папки сборки
 gulp.task('clean', function() {
     return del.sync('build');
 });
 
 
-// Оптимизация изображений
 gulp.task('img', function() {
     return gulp.src(['app/img/**/*', '!app/img/sprite/*'])
         .pipe(cache(imagemin({
@@ -136,7 +134,6 @@ gulp.task('build', ['clean', 'img', 'stylus', 'js'], function() {
 });
 
 
-// Очистка кеша
 gulp.task('clear', function() {
     return cache.clearAll();
 });
